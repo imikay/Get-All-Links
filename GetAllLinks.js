@@ -1,5 +1,7 @@
 (function (window, document)
 {  
+  var rImage = /\.(jpg|gif|jpeg|ico|png)$/;
+  
   var linkBox = document.getElementById('display');
   
   if (linkBox && linkBox.style.display == 'none')
@@ -24,7 +26,24 @@
       continue;
     }
     
-    links.push('<li><a style="display: block; padding: 3px 1px;" target="_blank"  href="'+ aElements[i].href + '" ' + 'title="' + aElements[i].href + '">[' + (i + 1) + ']:' + aElements[i].href + '</a></li>');
+    var currentHostName = document.location.hostname;      
+    
+    var types = [];
+    
+    var spiltedLink = aElements[i].href.slice(7).split('/');
+    var firstPartial = spiltedLink[0].toLowerCase();                    
+    
+    if (currentHostName != spiltedLink[0].toLowerCase().substr(-currentHostName.length))
+    {
+      types.push('x');
+    }
+
+    if (rImage.test(aElements[i].href.toLowerCase()))
+    {
+      types.push('i');
+    }    
+    
+    links.push('<li><span>[' + (i + 1) + ']:' + types.join('|') + '</span><a style="display: block; padding: 3px 1px;" target="_blank"  href="'+ aElements[i].href + '" ' + 'title="' + aElements[i].href + '">' + aElements[i].href + '</a></li>');
   }
   
   var display = document.createElement('ul');
