@@ -43,7 +43,7 @@
       types.push('i');
     }    
     
-    links.push('<li><span>[' + (i + 1) + ']:' + types.join('|') + '</span><a style="display: block; padding: 3px 1px;" target="_blank"  href="'+ aElements[i].href + '" ' + 'title="' + aElements[i].href + '">' + aElements[i].href + '</a></li>');
+    links.push('<li><span>[' + (i + 1) + ']:' + aElements[i].text + ( types.length ? '(' + types.join('|') + ')' : '' ) + '</span><a style="display: block; padding: 3px 1px;" target="_blank"  href="'+ aElements[i].href + '" ' + 'title="' + aElements[i].href + '">' + aElements[i].href + '</a></li>');
   }
   
   var display = document.createElement('ul');
