@@ -101,4 +101,4 @@
   
   document.body.appendChild(display);
   
-}(window, document));
+})(window, document);
