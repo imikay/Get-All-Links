@@ -4,9 +4,12 @@
   
   var linkBox = document.getElementById('display');
   
-  if (linkBox && linkBox.style.display == 'none')
+  if (linkBox)    
   {
-    linkBox.style.display = 'block';
+    if (linkBox.style.display == 'none')
+    {
+      linkBox.style.display = 'block';
+    }
     
     return;
   }
