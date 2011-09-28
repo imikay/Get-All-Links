@@ -109,7 +109,7 @@
   
   for (var j = 0; j < images.length; j++)  
   {
-    imageContainer.appendChild(images[j]);
+    imageContainer.appendChild(images[j].cloneNode(true));
   }
       
   display.appendChild(imageContainer);    
